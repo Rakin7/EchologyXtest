@@ -1,0 +1,48 @@
+.container {
+  height: 200px;
+  width: 800px; /* meant to hold 3 items */
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.left-btn, .right-btn {
+  position: absolute;
+}
+
+.left-btn BUTTON, .right-btn BUTTON {
+ cursor: pointer; 
+}
+
+.left-btn {
+  top: 100px;
+  left: 50px;
+}
+
+.right-btn {
+  top: 100px;
+  right: 50px;
+}
+
+.item-carousel {
+  position: relative;
+  right: 0;
+  font-size: 0;
+  width: 200%; /* holds twice as many items */
+/*   transition: right 300ms ease-in; */
+  transform: translateX(-200px);
+}
+
+.item {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  background-color: steelblue;
+  border: 5px solid white;
+  font-size: 36px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 164px;
+  user-select: none;
+}
+
