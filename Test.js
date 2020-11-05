@@ -84,8 +84,10 @@ else
 		imgDiv2.setAttributeNode(imgDivA2);
 
 		//style
-		imgDiv.style.width= "25%"
-		imgDiv.style.border="1px solid white";
+		imgDiv2.style.width= "100%";
+		//imgDiv.style.width= "20%";
+		imgDiv.style.flex = "0 0 25%";
+		//imgDiv.style.border="1px solid white";
 
 		imgDiv2a.appendChild(imgDiv2);
 		imgDiv.appendChild(imgDiv2a);
@@ -109,14 +111,16 @@ else
 	nextbtnDiv.innerHTML="NEXT";
 
 	//styling
-	containerDiv.style.width = "60%"; 
-	containerDiv.style.margin = "auto";
+	//containerDiv.style.width = "60%"; 
+	containerDiv.style.width = "80%";
+	//containerDiv.style.margin = "auto";
+	containerDiv.style.margin = "0 auto";
 	containerDiv.style.border = "5px solid black";
 	containerDiv.style.overflow = "hidden";
 
 	slideDiv.style.display = "flex";
-	slideDiv.style.width = "100%"; 
-	slideDiv.style.height = "100%"; 
+	//slideDiv.style.width = "100%"; 
+	//slideDiv.style.height = "100%"; 
 
 	prevbtnDiv.style.cursor = "pointer";
 	prevbtnDiv.style.backgroundColor = "black";
@@ -141,17 +145,12 @@ else
 	const nextBtn = document.querySelector("#nextbtn");
 
 	//counter
-	let counter = 1;
-	//const size=carouselImages[0].clientWidth;
-	//const size=carouselImages[0].getElementsByTagName("img")[0].clientWidth;
-	const size=97;
-
-
-	carouselSlide.style.transform = "translateX(" + (-size * counter) + "px)";
+	let counter = 0;
+	const size = carouselImages[0].clientWidth;
 
 	//Button listener
 	nextBtn.addEventListener("click",()=>{
-		if (counter >= carouselImages.length -5) return;
+		if (counter >= carouselImages.length -4) return;
 		carouselSlide.style.transition = "transform 0.4s ease-in-out";
 		counter++;
         carouselSlide.style.transform = "translateX(" + (-size * counter) + "px)";
