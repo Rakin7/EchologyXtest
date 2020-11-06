@@ -1,14 +1,17 @@
 var a=document.getElementById("shopify-section-footer-promotions");
 var b=window.theme.recentlyViewed.recent;
 
+var hr=document.createElement("hr");
+a.appendChild(hr);
+hr.style.width = "80%";
+
+var br=document.createElement("br");
+a.appendChild(br);
+
 var rv=document.createElement("div");
 var rva=document.createAttribute("class");
 rva.value="RV";
 rv.setAttributeNode(rva);
-
-var hr=document.createElement("hr");
-rv.appendChild(hr);
-hr.style.width = "80%";
 
 var para=document.createElement("h3");
 var parat=document.createTextNode("RECENTLY VIEWED");
@@ -100,7 +103,7 @@ else
 		//<img src ="1.jpg">
 		var imgDiv2 = document.createElement("img");
 		var imgDivA2 = document.createAttribute("src");
-        imgDivA2.value = res1;
+		imgDivA2.value = res1;
 		imgDiv2.setAttributeNode(imgDivA2);
 
 		//style
@@ -157,27 +160,33 @@ else
 
 	prevbtnDiv.style.cursor = "pointer";
 	prevbtnDiv.style.borderRadius = "50%";
+	prevbtnDiv.style.padding = "0px 8px";
+	prevbtnDiv.style.border= "2px solid black";
+	prevbtnDiv.style.marginRight= "5px";
+
 	nextbtnDiv.style.cursor = "pointer";
 	nextbtnDiv.style.borderRadius = "50%";
+	nextbtnDiv.style.padding = "0px 8px";
+	nextbtnDiv.style.border= "2px solid black";
 
 	iconl.style.border = "solid black";
 	iconl.style.borderWidth= "0 3px 3px 0";
 	iconl.style.display= "inline-block";
-	iconl.style.padding= "3px";
+	iconl.style.padding= "2px";
 	iconl.style.transform= "rotate(135deg)";
-    iconl.style.webkitTransform= "rotate(135deg)";
+	iconl.style.webkitTransform= "rotate(135deg)";
 
 	iconr.style.border = "solid black";
 	iconr.style.borderWidth= "0 3px 3px 0";
 	iconr.style.display= "inline-block";
-	iconr.style.padding= "3px";
+	iconr.style.padding= "2px";
 	iconr.style.transform= "rotate(-45deg)";
-    iconr.style.webkitTransform= "rotate(-45deg)";
+	iconr.style.webkitTransform= "rotate(-45deg)";
 
-    btn.style.position="absolute";
-    btn.style.top = "3%";
-    btn.style.right = "8%";
-    btn.style.backgroundColor="white";
+	btn.style.position="absolute";
+	btn.style.top = "10%";
+	btn.style.right = "9%";
+	btn.style.backgroundColor="white";
 
 	a.appendChild(containerDiv);
 	a.appendChild(btn);
@@ -192,6 +201,9 @@ else
 	const prevBtn = document.querySelector("#prevbtn");
 	const nextBtn = document.querySelector("#nextbtn");
 
+	const iconlz = document.querySelector(".left");
+	const iconrz = document.querySelector(".right");
+
 	//counter
 	let counter = 0;
 	const size = carouselImages[0].clientWidth;
@@ -201,7 +213,7 @@ else
 		if (counter >= carouselImages.length -4) return;
 		carouselSlide.style.transition = "transform 0.4s ease-in-out";
 		counter++;
-        carouselSlide.style.transform = "translateX(" + ((-size * counter) - (counter * 10)) + "px)";
+		carouselSlide.style.transform = "translateX(" + ((-size * counter) - (counter * 10)) + "px)";
 	});
 	prevBtn.addEventListener("click",()=>{
 		if (counter <= 0) return;
@@ -209,4 +221,29 @@ else
 		counter--;
 		carouselSlide.style.transform = "translateX(" + ((-size * counter) - (counter * 10)) + "px)";
 	});
+	nextBtn.onmouseover = function() {mouseOver()};
+	function mouseOver() {
+		nextBtn.style.backgroundColor = "black";
+		iconrz.style.border = "solid white";
+		iconrz.style.borderWidth= "0 3px 3px 0";
+	}
+	nextBtn.onmouseout = function() {mouseOut()};
+	function mouseOut() {
+		nextBtn.style.backgroundColor = "white";
+		iconrz.style.border = "solid black";
+		iconrz.style.borderWidth= "0 3px 3px 0";
+	}
+	prevBtn.onmouseover = function() {mouseOver1()};
+	function mouseOver1() {
+		prevBtn.style.backgroundColor = "black";
+		iconlz.style.border = "solid white";
+		iconlz.style.borderWidth= "0 3px 3px 0";
+	}
+	prevBtn.onmouseout = function() {mouseOut1()};
+	function mouseOut1() {
+		prevBtn.style.backgroundColor = "white";
+		iconlz.style.border = "solid black";
+		iconlz.style.borderWidth= "0 3px 3px 0";
+
+	}
 }
